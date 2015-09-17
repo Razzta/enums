@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>0F74E415FDFD44C6AD6D0B168F9C7235F9C27A41</key>
-		<string>https://github.com/bitmakerlabs/EnumsStructsClasses.git</string>
+		<string>https://github.com/Razzta/EnumsStructsClasses.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ClosuresEnumsStructsAndClasses.playground</string>
@@ -21,7 +21,7 @@
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/bitmakerlabs/EnumsStructsClasses.git</string>
+	<string>https://github.com/Razzta/EnumsStructsClasses.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

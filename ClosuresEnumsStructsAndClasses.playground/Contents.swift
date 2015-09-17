@@ -9,6 +9,15 @@ Closures can capture and store references to any constants and variables from th
 */
 
 
+func gangstaGreet(name:String, ability:String) -> (sup:String, eyYoWasGoodHomie:String){
+    return ("Yo whats good my main OG \(name)?", "may the \(ability) be with you cause we abouta bust a few caps in dem keys son!")
+}
+
+let retValue = gangstaGreet("Kwame", "code")
+println(retValue)
+println(retValue.sup)
+println(retValue.eyYoWasGoodHomie)
+
 
 /*:
 
@@ -69,6 +78,22 @@ Variadic functions are functions that have a variable number of arguments (indic
 ### Before continuing on, try these examples in playground. This will give you a feel for how functions are create and serve as a refresher.
 
 */
+func brokenFinger() -> ((String, Int) -> (String)) {
+    func finger(name:String, times:Int) -> (String) {
+        return "\(name) has broken his fingers busting keys \(times) times! #struggleIsReal"
+    }
+    return finger
+}
+let finger = brokenFinger()
+finger("Kwame", 6)
+
+func affiliationColor(colors:String...) -> () {
+    for color in colors {
+        println("(color)")
+    }
+}
+affiliationColor("red","blue","black")
+
 
 /*:
 
@@ -114,6 +139,23 @@ Furthermore, when a closure is the last argument of a function, parenthesis can 
 
 */
 
+    let gangsta = ["Kwame", "James", "Shameem"]
+gangsta.map({
+    (gangsta: String) -> String in
+    "(gangsta) has been trained!"
+})
+func applyMultiplication(value: Int, multFunction: Int -> Int) -> Int {
+    return multFunction(value)
+}
+applyMultiplication(2, {value in
+    value * 3
+})
+
+applyMultiplication(2, {$0 * 3})
+
+applyMultiplication(2) {$0 * 3}
+
+
 
 /*:
 
@@ -154,7 +196,17 @@ What each valid number means is either stored in your head or in a comment somew
 If someone tries to use an invalid numerical value, the compiler won’t warn you and your code will fail at runtime.
 
 */
+enum Direction {
+    case North
+    case South
+    case East
+    case West
+}
 
+let myDirection = Direction.North
+if myDirection == Direction.North {
+    println("you're facing north")
+}
 
 
 /*:
@@ -213,7 +265,22 @@ Raw value enums whose raw values are of the Int type are treated slightly differ
 * }
 
 */
+enum Title : String {
+    case CEO = "Chief Executive Officer"
+    case CTO = "Cheif Technical Officer"
+    case CFO = "Chief Financial Officer"
+}
 
+let myString: String = Title.CEO.rawValue
+let myTitle: Title = Title(rawValue: "Chief Executive Officer")!
+let badTitle: Title? = Title(rawValue: "not a valid title")
+
+enum Planet: Int {
+    case Mercury = 1
+    case Venues, Earth, Mars // 2, 3, 4
+    case Jupiter = 100
+    case Saturn, Uranus, Neptune // 101, 102, 13
+}
 
 /*:
 ## Associated Value Enum
@@ -242,6 +309,12 @@ The associated values need not be labeled. The above example can be more concise
 
 */
 
+enum Barcode {
+    case UPCA(Int, Int, Int)
+    case QRCode(String)
+}
+let myNormalBarcode = Barcode.UPCA(0, 2791701919, 3)
+let myQRCode = Barcode.QRCode("http://example.com")
 
 /*:
 
@@ -305,5 +378,9 @@ Try adding the following to playground
 
 */
 
-
-var str = "Hello, playground"
+struct TodoItem {
+    var title: String
+    var content: String
+    var dueDate: NSDate
+    let owner: String
+}
